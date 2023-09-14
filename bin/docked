@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Check which argument was passed:
+# * `bash` - check the next argument for the container name, then run bash in
+#            the container as the current user
+# * `root` - check the next argument for the container name, then run bash in
+#            the container as root
+
+if [ "$1" = "bash" ]; then
+    # Run bash as the current user
+    docker compose exec -it --user "$UID:$GID" "$2" bash
+elif [ "$1" = "root" ]; then
+    # Run bash as root
+    docker compose exec -it --user root:root "$2" bash
+else
+  echo "Invalid argument: $1"
+  echo "Usage: docked [bash|root] <container>"
+  exit 1
+fi
