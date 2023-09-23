@@ -1,0 +1,11 @@
+<li id="<%= dom_id episode %>" class="relative">
+  <%= link_to "", [episode, podcast_id: episode.podcast_id], class: "absolute inset-0" %>
+  <div class="font-bold">
+    <%= episode.title %>
+  </div>
+  <div class="text-sm text-gray-600">
+    <time datetime="<%= episode.aired_at.iso8601 %>">
+      <%= l episode.aired_at %>
+    </time>
+  </div>
+</li>

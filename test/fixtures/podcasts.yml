@@ -1,0 +1,17 @@
+rails_changelog:
+  url: "https://feeds.transistor.fm/the-rails-changelog"
+  cover_art_url: "https://images.transistor.fm/file/transistor/images/show/39552/medium_1680188330-artwork.jpg"
+  title: "The Rails Changelog"
+  description: "A weekly podcast about changes in the world of Ruby on Rails since the last episode."
+
+remote_ruby:
+  url: "https://feeds.transistor.fm/remote-ruby"
+  cover_art_url: "https://images.transistor.fm/file/transistor/images/show/112/medium_1559164364-artwork.jpg"
+  title: "Remote Ruby"
+  description: "A podcast about Ruby and related technologies."
+
+rework:
+  url: "https://feeds.transistor.fm/rework"
+  cover_art_url: "https://images.transistor.fm/file/transistor/images/show/4671/full_1686753813-artwork.jpg"
+  title: "Rework"
+  description: "A podcast by Basecamp about the better way to work and run your business. We bring you stories and unconventional wisdom from Basecamp’s co-founders and other business owners."
