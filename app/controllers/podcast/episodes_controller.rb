@@ -1,5 +1,5 @@
 class Podcast::EpisodesController < ApplicationController
-  before_action :set_podcast_episode, only: %i[ show edit update destroy ]
+  before_action :set_podcast_episode, only: %i[ show ]
 
   # GET /podcast/episodes or /podcast/episodes.json
   def index
