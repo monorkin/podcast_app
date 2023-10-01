@@ -1,5 +1,6 @@
 rails_changelog_episode_12:
   podcast: rails_changelog
+  guid: b11b5054-9495-4450-b4c7-d288ca698226
   aired_at: 2023-08-31 23:50:49 +0200
   title: "DHH joins the show to talk Rails 8, Delegated Types, Kamal and more!"
   audio_file_url: "https://2.gum.fm/op3.dev/e/pdcn.co/e/pscrb.fm/rss/p/pdst.fm/e/dts.podtrac.com/redirect.mp3/media.transistor.fm/e25be481/8c658063.mp3'"
@@ -9,6 +10,7 @@ rails_changelog_episode_12:
 
 rails_changelog_episode_11:
   podcast: rails_changelog
+  guid: b5b24f54-8b05-4167-b6c9-dd50ff80cfa5
   aired_at: 2023-08-25 01:26:36 +0200
   title: "Rails World ticket giveaway. From MRSK to Kamal & capture_emails test helper"
   audio_file_url: "https://2.gum.fm/op3.dev/e/pdcn.co/e/pscrb.fm/rss/p/pdst.fm/e/dts.podtrac.com/redirect.mp3/media.transistor.fm/1993cd61/122c7dcd.mp3"
@@ -17,6 +19,7 @@ rails_changelog_episode_11:
 
 rails_changelog_episode_10:
   podcast: rails_changelog
+  guid: 8be5830a-a6e1-4538-a73a-a80b34d61791
   aired_at: 2023-08-04 00:34:26 +0200
   title: "Improved Active Storage docs, a new has_secure_token callback with Dave Kimura"
   audio_file_url: "https://2.gum.fm/op3.dev/e/pdcn.co/e/pscrb.fm/rss/p/pdst.fm/e/dts.podtrac.com/redirect.mp3/media.transistor.fm/7e5805cb/e841d493.mp3"
@@ -25,6 +28,7 @@ rails_changelog_episode_10:
 
 remote_ruby_episode_rails_71_is_gonna_be_huge:
   podcast: remote_ruby
+  guid: e60270dd-b452-4c78-9272-16a768489b4b
   aired_at: 2023-09-22 19:17:10 -0500
   title: "Rails 7.1 is gonna be HUGE"
   audio_file_url: "https://dts.podtrac.com/redirect.mp3/media.transistor.fm/638faf55/430c9213.mp3"
@@ -33,6 +37,7 @@ remote_ruby_episode_rails_71_is_gonna_be_huge:
 
 remote_ruby_episode_ther_is_a_typescript_in_my_boot:
   podcast: remote_ruby
+  guid: e812585f-c819-4c26-943b-ba44d5f83cfc
   aired_at: 2023-09-15 07:00:00 -0500
   title: "There's A TypeScript In My Boot!"
   audio_file_url: "https://dts.podtrac.com/redirect.mp3/media.transistor.fm/4877ee15/6eeca86f.mp3"
@@ -41,6 +46,7 @@ remote_ruby_episode_ther_is_a_typescript_in_my_boot:
 
 remote_ruby_episode_sorry_for_slandering_yet_another_gem:
   podcast: remote_ruby
+  guid: 6c7f0f84-6fe0-4747-b95d-7b3500565157
   aired_at: 2023-09-08 07:00:00 -0500
   title: "Sorry For Slandering Yet Another Gem"
   audio_file_url: "https://dts.podtrac.com/redirect.mp3/media.transistor.fm/a47dfc5a/730630cf.mp3"
@@ -49,7 +55,8 @@ remote_ruby_episode_sorry_for_slandering_yet_another_gem:
 
 rework_episode_shapeup_principle_decide_when_to_stop:
   podcast: rework
-  aired_at: 2020-09-20 03:00:00 -0500
+  guid: bf56b978-2449-48aa-a4a3-c07cda6b9e93
+  aired_at: 2023-09-20 03:00:00 -0500
   title: "Shapeup Principle: Decide When to Stop"
   audio_file_url: "https://media.transistor.fm/70e5eadf/0ad0da52.mp3"
   show_notes: >
@@ -57,6 +64,7 @@ rework_episode_shapeup_principle_decide_when_to_stop:
 
 rework_episode_typescript_drama_and_opensource_opinions:
   podcast: rework
+  guid: 97d8bf5e-43fd-4ba7-a826-c87651143a1d
   aired_at: 2023-09-13 16:51:46 -0500
   title: "TypeScript Drama and Open Source Opinions"
   audio_file_url: "https://media.transistor.fm/6c4f4478/d5ac2026.mp3"
@@ -65,6 +73,7 @@ rework_episode_typescript_drama_and_opensource_opinions:
 
 rework_episode_shapeup_principle_the_betting_table:
   podcast: rework
+  guid: 2f90430b-97df-4daa-8ceb-f74b37451fa4
   aired_at: 2023-09-06 06:46:46 -0500
   title: "Shapeup Principle: The Betting Table"
   audio_file_url: "https://media.transistor.fm/b8a62785/eeef457c.mp3"

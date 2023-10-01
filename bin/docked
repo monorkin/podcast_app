@@ -12,6 +12,9 @@ elif [ "$1" = "start" ]; then
 elif [ "$1" = "stop" ]; then
     # Stop the containers
     docker compose down
+elif [ "$1" = "server" ]; then
+    # Starts the development server within the container env
+    docker compose exec -it --user "$UID:$GID" app bin/dev
 else
   echo "Invalid argument: $1"
   echo "Usage: docked [start|stop|bash|root] <container>"

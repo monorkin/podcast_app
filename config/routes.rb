@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :podcasts, only: [:index, :show, :create, :new] do
+    post :fetch_new_episodes, on: :member
     resources :episodes, controller: "podcast/episodes", only: [:index, :show]
   end
 

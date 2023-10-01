@@ -26,12 +26,20 @@ RUN apt-get update -qq && \
 ################################################################################
 ################################################################################
 
-# In develoipment, we want to have a lot of the tools from the build stage
+# In development, we want to have a lot of the tools from the build stage
 FROM build_base as development
+
+RUN mkdir -p /tmp/home && \
+    chown -R 1000:1000 /tmp/home
 
 ENV RAILS_ENV="development" \
     BUNDLE_DEPLOYMENT="0" \
-    BUNDLE_WITHOUT=""
+    BUNDLE_WITHOUT="" \
+    HOME="/tmp/home"
+
+RUN echo "deb http://deb.debian.org/debian/ unstable main contrib non-free" >> /etc/apt/sources.list.d/debian.list && \
+    apt-get update -qq && \
+    apt-get install --no-install-recommends -y xvfb firefox chromium
 
 ################################################################################
 ################################################################################

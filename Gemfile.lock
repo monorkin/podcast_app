@@ -85,6 +85,7 @@ GEM
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
     base64 (0.1.1)
+    bcrypt (3.1.19)
     bigdecimal (3.1.4)
     bindex (0.8.1)
     bootsnap (1.16.0)
@@ -101,6 +102,8 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
+    crack (0.4.5)
+      rexml
     crass (1.0.6)
     date (3.3.3)
     debug (1.8.0)
@@ -124,6 +127,7 @@ GEM
       fugit (>= 1.1)
       railties (>= 6.0.0)
       thor (>= 0.14.1)
+    hashdiff (1.0.1)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.2.1)
@@ -146,6 +150,7 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    memory_profiler (1.0.1)
     mini_mime (1.1.5)
     minitest (5.20.0)
     msgpack (1.7.2)
@@ -171,11 +176,13 @@ GEM
     psych (5.1.0)
       stringio
     public_suffix (5.0.3)
-    puma (6.3.1)
+    puma (6.4.0)
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.7.1)
     rack (3.0.8)
+    rack-mini-profiler (3.1.1)
+      rack (>= 1.2.0)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -225,6 +232,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    stackprof (0.2.25)
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
     stringio (3.0.8)
@@ -243,6 +251,10 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
+    webmock (3.19.1)
+      addressable (>= 2.8.0)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
     webrick (1.8.1)
     websocket (1.2.9)
     websocket-driver (0.7.6)
@@ -256,6 +268,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootsnap
   capybara
   debug
@@ -263,20 +276,24 @@ DEPENDENCIES
   good_job
   importmap-rails
   jbuilder
+  memory_profiler
   pg (~> 1.1)
   propshaft
   puma (>= 5.0)
+  rack-mini-profiler
   rails (~> 7.1.0.beta1)
   rss!
   selenium-webdriver
+  stackprof
   stimulus-rails
   tailwindcss-rails
   turbo-rails
   tzinfo-data
   web-console
+  webmock
 
 RUBY VERSION
    ruby 3.2.1p31
 
 BUNDLED WITH
-   2.4.8
+   2.4.6

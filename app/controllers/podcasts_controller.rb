@@ -1,5 +1,5 @@
 class PodcastsController < ApplicationController
-  before_action :set_podcast, only: %i[ show ]
+  before_action :set_podcast, only: %i[ show fetch_new_episodes ]
 
   # GET /podcasts or /podcasts.json
   def index
@@ -17,7 +17,7 @@ class PodcastsController < ApplicationController
 
   # POST /podcasts or /podcasts.json
   def create
-    @podcast = Podcast.from_url(podcast_params[:url])
+    @podcast = Podcast.import_from_url(podcast_params[:url])
 
     respond_to do |format|
       if @podcast.save
@@ -28,6 +28,12 @@ class PodcastsController < ApplicationController
         format.json { render json: @podcast.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def fetch_new_episodes
+    @podcast.fetch_episodes_later
+
+    redirect_to action: :show, status: :see_other, notice: "Fetching new episodes"
   end
 
   private

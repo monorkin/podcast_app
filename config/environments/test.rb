@@ -61,4 +61,7 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+
+  # Use an HTML5 parser to assert HTML tests
+  config.dom_testing_default_html_version = :html5
 end

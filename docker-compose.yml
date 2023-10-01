@@ -16,6 +16,7 @@ services:
       target: development
     image: 'podcast-app:development'
     command: '/bin/bash -c "while true; do sleep 10; done;"'
+    entrypoint: '/rails/bin/docker-development-entrypoint'
     volumes:
       - "$PWD:/rails"
       - bundle_store:/usr/local/bundle
@@ -24,6 +25,7 @@ services:
     depends_on:
       - db
     environment:
+      - "DISPLAY=:99"
       - "DATABASE_HOST=db"
       - "DATABASE_USER=postgres"
 

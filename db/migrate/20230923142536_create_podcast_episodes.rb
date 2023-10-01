@@ -6,6 +6,7 @@ class CreatePodcastEpisodes < ActiveRecord::Migration[7.1]
       t.string :title, null: false
       t.text :show_notes
       t.text :audio_file_url, null: false
+      t.text :guid, null: false
 
       t.timestamps
     end

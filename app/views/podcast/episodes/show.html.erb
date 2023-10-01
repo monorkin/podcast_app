@@ -1,28 +1,24 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+<div class="flex flex-col">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="mb-6 flex flex-col gap-y-4 sm:block">
+    <%= link_to 'Back to podcast', podcast_path(@podcast_episode.podcast), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium text-center" %>
+  </div>
+
+  <div class="mb-6">
+    <%= cover_art_header(cover_art_url: @podcast_episode.podcast.cover_art_url, title: @podcast_episode.title) do %>
+      Aired <time datetime="<%= @podcast_episode.aired_at.iso8601 %>"><%= l @podcast_episode.aired_at, format: :short %></time>
     <% end %>
+  </div>
 
-    <div class="flex flex-row gap-x-4 mb-6">
-      <div class="w-44">
-        <%= image_tag @podcast_episode.cover_art_url, class: "rounded-lg shadow" %>
-      </div>
-      <div>
-        <h1 class="text-3xl font-bold mb-3"><%= @podcast_episode.title %></h1>
-        <time datetime="<%= @podcast_episode.aired_at.iso8601 %>" class="text-gray-500 mb-3"><%= l @podcast_episode.aired_at %></time>
-      </div>
-    </div>
+  <audio controls class="w-full rounded shadow mb-6">
+    <source src="<%= @podcast_episode.audio_file_url %>" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
-    <audio controls class="w-full rounded shadow mb-6">
-      <source src="<%= @podcast_episode.audio_file_url %>" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-
-    <div class="mb-6">
-      <%= simple_format(@podcast_episode.show_notes) %>
-    </div>
-
-    <%= link_to 'Back to podcast', podcast_path(@podcast_episode.podcast), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <div class="mb-6">
+    <%= simple_format(@podcast_episode.show_notes) %>
   </div>
 </div>

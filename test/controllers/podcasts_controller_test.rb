@@ -2,7 +2,7 @@ require "test_helper"
 
 class PodcastsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @podcast = podcasts(:one)
+    @podcast = podcasts(:remote_ruby)
   end
 
   test "should get index" do
@@ -16,8 +16,10 @@ class PodcastsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create podcast" do
+    stub_feed_request_for "https://example.com/feed", with: Pathname.new(file_fixture_path).join("example_feed.xml")
+
     assert_difference("Podcast.count") do
-      post podcasts_url, params: { podcast: { cover_art_url: @podcast.cover_art_url, title: @podcast.title, url: @podcast.url } }
+      post podcasts_url, params: { podcast: { url: "https://example.com/feed" } }
     end
 
     assert_redirected_to podcast_url(Podcast.last)
@@ -26,23 +28,5 @@ class PodcastsControllerTest < ActionDispatch::IntegrationTest
   test "should show podcast" do
     get podcast_url(@podcast)
     assert_response :success
-  end
-
-  test "should get edit" do
-    get edit_podcast_url(@podcast)
-    assert_response :success
-  end
-
-  test "should update podcast" do
-    patch podcast_url(@podcast), params: { podcast: { cover_art_url: @podcast.cover_art_url, title: @podcast.title, url: @podcast.url } }
-    assert_redirected_to podcast_url(@podcast)
-  end
-
-  test "should destroy podcast" do
-    assert_difference("Podcast.count", -1) do
-      delete podcast_url(@podcast)
-    end
-
-    assert_redirected_to podcasts_url
   end
 end

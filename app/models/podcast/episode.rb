@@ -1,17 +1,10 @@
 class Podcast::Episode < ApplicationRecord
   belongs_to :podcast
 
-  delegate :cover_art_url, to: :podcast
+  validates :aired_at, presence: true
+  validates :audio_file_url, presence: true
+  validates :guid, presence: true, uniqueness: { scope: :podcast_id }
+  validates :title, presence: true
 
-  class << self
-    def from_feed_item(item, podcast:)
-      new(
-        podcast: podcast,
-        aired_at: item.pubDate,
-        title: item.itunes_title.presence || item.title.presence,
-        show_notes: item.description.presence,
-        audio_file_url: item.enclosure.url
-      )
-    end
-  end
+  delegate :cover_art_url, to: :podcast
 end

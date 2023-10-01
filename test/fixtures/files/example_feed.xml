@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0">
+  <channel>
+    <title>Example Podcast</title>
+    <description>This is an example podcast.</description>
+    <itunes:image href="http://example.com/cover_art.png" />
+    <podcast:podping usesPodping="true"/>
+    <podcast:guid>85485853-34db-42da-8c31-6a6d2075f848</podcast:guid>
+    <podcast:locked owner="john.smith@example.com">no</podcast:locked>
+    <podcast:person
+        href="https://example.com/johnsmith/blog"
+        img="http://example.com/images/johnsmith.jpg"
+    >John Smith</podcast:person>
+    <podcast:person
+        role="guest"
+        href="https://www.imdb.com/name/nm0427852888/"
+        img="http://example.com/images/janedoe.jpg"
+    >Jane Doe</podcast:person>
+    <podcast:person
+        role="guest"
+        href="https://www.wikipedia/alicebrown"
+        img="http://example.com/images/alicebrown.jpg"
+    >Alice Brown</podcast:person>
+    <podcast:person
+        group="writing"
+        role="guest"
+        href="https://www.wikipedia/alicebrown"
+        img="http://example.com/images/alicebrown.jpg"
+    >Alice Brown</podcast:person>
+    <podcast:person
+        group="visuals"
+        role="Cover Art Designer"
+        href="https://example.com/artist/beckysmith"
+    >Becky Smith</podcast:person>
+    <podcast:funding url="https://example.com/donate">Support the show!</podcast:funding>
+    <podcast:location geo="geo:30.2672,97.7431" osm="R113314">Austin, TX</podcast:location>
+    <podcast:license url="https://example.org/mypodcastlicense/full.pdf">my-podcast-license-v1</podcast:license>
+    <podcast:images
+      srcset="https://example.com/images/ep1/pci_avatar-massive.jpg 1500w,
+              https://example.com/images/ep1/pci_avatar-middle.jpg 600w,
+              https://example.com/images/ep1/pci_avatar-small.jpg 300w,
+              https://example.com/images/ep1/pci_avatar-tiny.jpg 150w"
+    />
+    <podcast:txt>naj3eEZaWVVY9a38uhX8FekACyhtqP4JN</podcast:txt>
+    <podcast:txt purpose="verify">S6lpp-7ZCn8-dZfGc-OoyaG</podcast:txt>
+    <podcast:trailer
+        pubdate="Thu, 01 Apr 2021 08:00:00 EST"
+        url="https://example.org/trailers/teaser"
+        length="12345678"
+        type="audio/mp3
+    ">Coming April 1st, 2021</podcast:trailer>
+    <podcast:trailer
+        pubdate="Thu, 01 Apr 2021 08:00:00 EST"
+        url="https://example.org/trailers/season4teaser"
+        length="12345678"
+        type="video/mp4"
+        season="4"
+    >Season 4: Race for the Whitehouse</podcast:trailer>
+    <podcast:medium>blog</podcast:medium>
+    <podcast:block>no</podcast:block>
+    <podcast:block id="google">yes</podcast:block>
+    <podcast:block id="amazon">yes</podcast:block>
+    <podcast:updateFrequency rrule="FREQ=WEEKLY;INTERVAL=2;BYDAY=MO;COUNT=10" dtstart="2023-08-28T00:00:00.000Z">
+      Every other Monday for 10 episodes starting on Aug 28, 2023
+    </podcast:updateFrequency>
+    <item>
+      <guid>https://example.com/episode1</guid>
+      <pubDate>Thu, 01 Apr 2021 08:00:00 EST</pubDate>
+      <title>Episode 1</title>
+      <description>This is the first episode.</description>
+      <enclosure url="https://example.com/file-0.mp3" length="43200000" type="audio/mpeg" />
+      <podcast:transcript url="https://example.com/episode1/transcript.html" type="text/html" />
+      <podcast:transcript url="https://example.com/episode1/transcript.vtt" type="text/vtt" />
+      <podcast:transcript
+        url="https://example.com/episode1/transcript.json"
+        type="application/json"
+        language="es"
+        rel="captions"
+      />
+      <podcast:chapters url="https://example.com/episode1/chapters.json" type="application/json+chapters" />
+      <podcast:soundbite startTime="73.0" duration="60.0" />
+      <podcast:soundbite startTime="1234.5" duration="42.25">Why the Podcast Namespace Matters</podcast:soundbite>
+      <podcast:season name="Egyptology: The 19th Century">1</podcast:season>
+      <podcast:episode display="Ch.3">204</podcast:episode>
+      <podcast:alternateEnclosure type="audio/mpeg" length="43200000" bitrate="128000" default="true" title="Standard">
+          <podcast:source uri="https://example.com/file-0.mp3" />
+          <podcast:source uri="ipfs://someRandomMpegFile" />
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/opus" length="32400000" bitrate="96000" title="High quality">
+          <podcast:source uri="https://example.com/file-high.opus" />
+          <podcast:source uri="ipfs://someRandomHighBitrateOpusFile" />
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/aac" length="54000000" bitrate="160000" title="High quality AAC">
+          <podcast:source uri="https://example.com/file-proprietary.aac" />
+          <podcast:source uri="ipfs://someRandomProprietaryAACFile" />
+      </podcast:alternateEnclosure>
+      <podcast:alternateEnclosure type="audio/opus" length="5400000" bitrate="16000" title="Low bandwidth">
+          <podcast:source uri="https://example.com/file-low.opus" />
+          <podcast:source uri="ipfs://someRandomLowBitrateOpusFile" />
+      </podcast:alternateEnclosure>
+      <podcast:socialInteract
+        uri="https://podcastindex.social/web/@dave/108013847520053258"
+        protocol="activitypub"
+        accountId="@dave"
+      />
+      <podcast:socialInteract
+        priority="1"
+        uri="https://podcastindex.social/web/@dave/108013847520053258"
+        protocol="activitypub"
+        accountId="@dave"
+        accountUrl="https://podcastindex.social/web/@dave"
+      />
+      <podcast:socialInteract
+        priority="2"
+        uri="https://twitter.com/PodcastindexOrg/status/1507120226361647115"
+        protocol="twitter"
+        accountId="@podcastindexorg"
+        accountUrl="https://twitter.com/PodcastindexOrg"
+      />
+    </item>
+  </channel>
+</rss>

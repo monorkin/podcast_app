@@ -97,6 +97,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_24_134234) do
     t.string "title", null: false
     t.text "show_notes"
     t.text "audio_file_url", null: false
+    t.text "guid", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["podcast_id"], name: "index_podcast_episodes_on_podcast_id"

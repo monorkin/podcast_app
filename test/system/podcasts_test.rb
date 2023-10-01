@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class PodcastsTest < ApplicationSystemTestCase
   setup do
-    @podcast = podcasts(:one)
+    @podcast = podcasts(:remote_ruby)
   end
 
   test "visiting the index" do
@@ -11,35 +11,18 @@ class PodcastsTest < ApplicationSystemTestCase
   end
 
   test "should create podcast" do
+    @podcast.destroy!
+    stub_feed_request_for(@podcast.url,
+      with: Pathname.new(file_fixture_path).join("modified_remote_ruby_feed.xml"))
+
     visit podcasts_url
     click_on "New podcast"
 
-    fill_in "Cover art url", with: @podcast.cover_art_url
-    fill_in "Title", with: @podcast.title
     fill_in "Url", with: @podcast.url
     click_on "Create Podcast"
 
+    assert_current_path podcast_url(Podcast.order(created_at: :desc).first)
     assert_text "Podcast was successfully created"
     click_on "Back"
-  end
-
-  test "should update Podcast" do
-    visit podcast_url(@podcast)
-    click_on "Edit this podcast", match: :first
-
-    fill_in "Cover art url", with: @podcast.cover_art_url
-    fill_in "Title", with: @podcast.title
-    fill_in "Url", with: @podcast.url
-    click_on "Update Podcast"
-
-    assert_text "Podcast was successfully updated"
-    click_on "Back"
-  end
-
-  test "should destroy Podcast" do
-    visit podcast_url(@podcast)
-    click_on "Destroy this podcast", match: :first
-
-    assert_text "Podcast was successfully destroyed"
   end
 end

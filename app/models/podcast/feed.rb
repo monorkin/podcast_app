@@ -26,18 +26,28 @@ class Podcast::Feed
 
   def episodes
     feed.channel.items.each.lazy.map do |item|
-      Podcast::Episode.from_feed_item(item, podcast: podcast)
+      build_episode_from_item(item)
     end
   end
 
   private
+
+    def build_episode_from_item(item)
+      Podcast::Episode.new(
+        podcast: podcast,
+        guid: item.guid.content.presence,
+        aired_at: item.pubDate,
+        title: item.itunes_title.presence || item.title.presence,
+        show_notes: item.description.presence,
+        audio_file_url: item.enclosure.url
+      )
+    end
 
     def feed
       @feed ||= RSS::Parser.parse(rss_xml, validate: false)
     end
 
     def rss_xml
-      # TODO: follow redirects
       @rss_xml ||= Net::HTTP.get(URI(url))
     end
 end
