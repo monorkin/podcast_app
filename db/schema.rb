@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_09_24_134234) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_02_091501) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -103,6 +103,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_24_134234) do
     t.index ["podcast_id"], name: "index_podcast_episodes_on_podcast_id"
   end
 
+  create_table "podcast_external_ids", force: :cascade do |t|
+    t.bigint "podcast_id", null: false
+    t.bigint "provider", null: false
+    t.string "identifier", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["podcast_id"], name: "index_podcast_external_ids_on_podcast_id"
+    t.index ["provider", "identifier"], name: "index_podcast_external_ids_on_provider_and_identifier", unique: true
+  end
+
   create_table "podcasts", force: :cascade do |t|
     t.text "url", null: false
     t.text "cover_art_url"
@@ -113,4 +123,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_24_134234) do
   end
 
   add_foreign_key "podcast_episodes", "podcasts"
+  add_foreign_key "podcast_external_ids", "podcasts"
 end
