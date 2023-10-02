@@ -1,9 +1,14 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+rails_changelog_itunes:
+  podcast: rails_changelog
+  provider: itunes
+  identifier: 1677373826
 
-one:
-  provider: 
-  id: MyString
+remote_ruby_itunes:
+  podcast: remote_ruby
+  provider: itunes
+  identifier: 1397042613
 
-two:
-  provider: 
-  id: MyString
+rework_itunes:
+  podcast: rework
+  provider: itunes
+  identifier: 1264193508

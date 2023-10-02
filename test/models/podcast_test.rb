@@ -12,6 +12,15 @@ class PodcastTest < ActiveSupport::TestCase
     end
   end
 
+  test ".import_from_itunes delegates to an instance of Podcast::Import" do
+    podcast = podcasts(:remote_ruby)
+    stub_feed_request_for(podcast.url, with: Pathname.new(file_fixture_path).join("modified_remote_ruby_feed.xml"))
+
+    Podcast::Import.stub :from_itunes, podcast, [url: podcast.url, collection_id: podcast.external_ids.from_itunes.first.identifier] do
+      assert_equal podcast, Podcast.import_from_itunes(url: podcast.url, collection_id: podcast.external_ids.from_itunes.first.identifier)
+    end
+  end
+
   test "#fetch_episodes_later enqueues a Podcast::EpisodeFetcherJob" do
     podcast = podcasts(:remote_ruby)
 

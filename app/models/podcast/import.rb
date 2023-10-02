@@ -17,35 +17,38 @@ class Podcast::Import
   end
 
   def import
-    podcast.save! unless podcast.persisted?
+    podcast.url = url
+    podcast.external_ids.new(external_id) if new_external_id?
+
+    if podcast.url_changed? || podcast.new_record?
+      feed = podcast.feed
+
+      podcast.title = feed.title
+      podcast.description = feed.description
+      podcast.cover_art_url = feed.cover_art_url
+    end
+
+    podcast.save!
     podcast
   end
 
   private
 
     def podcast
-      @podcast ||= (find_podcast || build_podcast)
+      @podcast ||= (find_podcast || Podcast.new(url: url))
     end
 
     def find_podcast
-      podcast_by_url = Podcast.find_by(url: url)
+      podcast = Podcast.find_by(url: url)
 
       if external_id.present? && url.present?
-        return (podcast_by_url || Podcast::ExternalId.find_by(external_id)&.podcast)
+        return (podcast || Podcast::ExternalId.find_by(external_id)&.podcast)
       end
 
-      podcast_by_url
+      podcast
     end
 
-    def build_podcast
-      Podcast.new(url: url).tap do |podcast|
-        feed = podcast.feed
-
-        podcast.title = feed.title
-        podcast.description = feed.description
-        podcast.cover_art_url = feed.cover_art_url
-
-        podcast.external_ids.new(external_id) if external_id.present?
-      end
+    def new_external_id?
+      external_id.present? && podcast.external_ids.find_by(external_id).blank?
     end
 end
